@@ -30,6 +30,8 @@ public interface FileManager {
 
     boolean deleteFolder(File folder) throws FileNotFoundException;
 
+    void largestFile(String filePath) throws FileNotFoundException;
+
     File[] filterImagesFilesInDir(String dirPath) throws FileNotFoundException;
 
     void filterImagesFilesInDirRec(File file, PrintStream out) throws FileNotFoundException;

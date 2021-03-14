@@ -105,6 +105,26 @@ public class FileManagerImpl  implements FileManager {
     }
 
     @Override
+    public void largestFile(String filePath) throws FileNotFoundException {
+        File f = new File(filePath);
+        if(!f.exists()){
+            throw new FileNotFoundException();
+        }
+        File [] files = f.listFiles();
+        if(files!=null) {
+            long maxSize = 0;
+            String maxName = "";
+            for (File f1 : files) {
+                if (f1.length() > maxSize) {
+                    maxSize = f1.length();
+                    maxName = f1.getAbsolutePath();
+                }
+            }
+            System.out.println(maxName+" "+maxSize);
+        }
+    }
+
+    @Override
     public File[] filterImagesFilesInDir(String dirPath) throws FileNotFoundException {
         File f = new File(dirPath);
         if(!f.exists())
